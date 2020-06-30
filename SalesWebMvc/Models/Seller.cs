@@ -1,17 +1,25 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace SalesWebMvc.Models
 {
     public class Seller
     {
         public int Id { get; set; }
+        [Display(Name = "Nome")]
         public string Name { get; set; }
+        [Display(Name = "Email")]
         public string Email { get; set; }
+        [Display(Name = "Aniversario")]
         public DateTime BirthDate { get; set; }
+        [Display(Name = "Salario Base")]
         public double BaseSalary { get; set; }
+        
         public Department Department { get; set; }
+        [Display(Name = "Departamento")]
+        public int DepartmentId { get; set; }
         public ICollection<SalesRecord> Sales { get; set; } = new List<SalesRecord>();
 
         public Seller()
