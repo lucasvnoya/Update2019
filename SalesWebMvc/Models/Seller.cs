@@ -8,16 +8,21 @@ namespace SalesWebMvc.Models
     public class Seller
     {
         public int Id { get; set; }
-        [Display(Name = "Nome")]
+        [Display(Name = "Name")]
         public string Name { get; set; }
         [Display(Name = "Email")]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
-        [Display(Name = "Aniversario")]
+        [Display(Name = "Birth Date")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime BirthDate { get; set; }
-        [Display(Name = "Salario Base")]
+        [Display(Name = "Base Salary")]
+        [DisplayFormat(DataFormatString = "{0:F2}")]
         public double BaseSalary { get; set; }
-        [Display(Name = "Departamento")]
-        public Department Department { get; set; }        
+        [Display(Name = "Departament")]
+        public Department Department { get; set; }
+        [Display(Name = "Departament")]
         public int DepartmentId { get; set; }
         public ICollection<SalesRecord> Sales { get; set; } = new List<SalesRecord>();
 
